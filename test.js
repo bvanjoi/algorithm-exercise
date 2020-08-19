@@ -1,0 +1,26 @@
+const rl = require('readline');
+const rd = rl.createInterface({
+  input:  process.stdin,
+  output: process.stdout
+})
+
+let firstLine = 1;
+let otherLine = 0;
+let l = [];
+rd.on('line', (line)=>{
+  let arr = line.split(' ').map(Number);
+  if( firstLine-- > 0) {
+    l.length = arr[0] + 1;
+    l.fill(1,0, arr[0] + 1);
+    otherLine = arr[1];
+    return ;
+  } else if ( otherLine--) {
+    for( let i = arr[0]; i <= arr[1]; i++) {
+      l[i] = 0;
+    }
+  }
+  if( otherLine === 0) {
+    console.log( l.reduce((pre, value) => pre + (value === 1 ? 1:0)));
+    rd.close();
+  }
+})
