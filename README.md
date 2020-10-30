@@ -4,7 +4,7 @@
 
 现决定重新来过。
 
-# 算法练习：
+# 算法练习
 
 [leetcode](/leetcode/README.md)
 
